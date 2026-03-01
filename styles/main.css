@@ -1,0 +1,447 @@
+/*************************/
+/*** MAIN SCROLL-FADE ***/
+/************************/
+main .scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+}
+
+main .scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*************************/
+/********* ABOUT *********/
+/************************/
+.about {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.section-header {
+  max-width: 38rem;
+}
+
+.about h1 {
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 5.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.about h1 span {
+  color: var(--primary);
+}
+
+.about h4 {
+  margin-bottom: 0.5rem;
+  max-width: 40ch;
+}
+
+.about p {
+  font-size: clamp(1.125rem, 0.9rem + 0.4vw, 1.25rem);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+@media (min-width: 992px) {
+  .about h4 {
+    margin-bottom: 0.1rem;
+    max-width: 60ch;
+  }
+
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .about .text-container {
+    max-width: 38rem;
+    width: 100%;
+    border-left: 2px solid var(--primary);
+    padding-left: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  .about {
+    padding-inline: 6rem;
+  }
+}
+
+/*************************/
+/******** COURSE ********/
+/************************/
+
+.course {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.course-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.course .part-a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.course .part-a .poem-container p {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  opacity: 0.92;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course .part-b {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.part-b iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 992px) {
+  .course-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 5rem;
+  }
+
+  .course .part-a {
+    grid-area: part-a;
+    justify-self: start;
+  }
+
+  .course .part-b {
+    grid-area: part-b;
+    justify-self: end;
+  }
+
+  .course-container {
+    grid-template-areas: "part-a part-b";
+  }
+}
+
+/*************************/
+/******** TEACHER ********/
+/************************/
+.teacher {
+  background-color: rgb(239, 227, 218);
+}
+
+.teacher-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.teacher .text-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5;
+}
+
+.teacher .section-photo {
+  width: clamp(150px, 70vw, 400px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.teacher .section-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 992px) {
+  .teacher .section-photo {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .teacher .section-photo {
+    width: min(100%, 400px);
+  }
+}
+
+.teacher .text-details {
+  padding-top: clamp(1rem, 2vw, 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher .text-details p {
+  color: var(--dark);
+}
+
+@media (min-width: 992px) {
+  .teacher-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 45% 55%;
+    column-gap: 2rem;
+  }
+
+  .teacher-container .section-photo {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .teacher-container .text-header {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .teacher-container .text-details {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .teacher-container {
+    align-items: start;
+  }
+
+  .teacher .section-photo {
+    height: 100%;
+  }
+}
+
+/*************************/
+/******** BANNER ********/
+/************************/
+.banner {
+  background-color: var(--light);
+  color: var(--dark);
+  width: 100%;
+}
+
+.banner.color {
+  background-color: var(--bg-accent);
+}
+
+.banner .banner-container h2 {
+  font-size: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+/* FLEX - GRID */
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .banner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .part-1 {
+    grid-area: part-1;
+    justify-self: start;
+  }
+
+  .part-2 {
+    grid-area: part-2;
+    justify-self: end;
+  }
+
+  .banner .banner-container {
+    grid-template-areas: "part-1 part-2";
+  }
+
+  .banner.reverse .banner-container {
+    grid-template-areas: "part-2 part-1";
+  }
+
+  .banner.reverse .part-1 {
+    justify-self: end;
+  }
+
+  .banner.reverse .part-2 {
+    justify-self: start;
+  }
+}
+
+/* PHOTO */
+.banner .banner-container .img-container {
+  width: clamp(150px, 70vw, 400px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.banner .banner-container .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 500px) {
+  .banner .banner-container .img-container:not(.contact-logo) {
+    width: min(100%, 400px);
+  }
+}
+
+/* INTEREST BANNER */
+.banner.interest .banner-container .btn {
+  background-color: var(--light);
+  border: 2px solid var(--primary);
+  max-width: 200px;
+}
+
+.banner.interest .banner-container a.btn {
+  color: var(--primary);
+}
+
+.banner.interest .banner-container .btn:hover {
+  background-color: var(--primary);
+}
+
+.banner.interest .banner-container a.btn:hover {
+  color: var(--light);
+}
+
+/* CONTACT BANNER */
+.banner.contact .banner-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .banner.contact .banner-container {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+
+  .banner.reverse.contact .banner-container {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+.img-container iframe {
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.contact .img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact .part-1 {
+  line-height: 1.8;
+}
+
+.contact .part-1 strong {
+  display: inline-block;
+  min-width: 120px;
+  color: var(--primary);
+}
+
+/* LIST */
+.banner.contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.banner.contact ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner.contact ul li {
+  text-decoration: none;
+}
+
+.banner.contact ul li span {
+  font-weight: 600;
+  display: inline-block;
+  min-width: 160px;
+  color: var(--primary);
+}
+
+@media (min-width: 992px) {
+  .contact .part-1 {
+    padding-right: 3rem;
+  }
+
+  .contact.reverse .part-1 {
+    padding-left: 3rem;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner.contact ul li {
+    flex-direction: row;
+    gap: 0.5;
+  }
+}
+
+/* PHOTOGRAPHIC */
+.photographic {
+  height: 70vh;
+  width: 100%;
+}
+
+.photographic-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/img/jihoceske-staveni-kremze.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
